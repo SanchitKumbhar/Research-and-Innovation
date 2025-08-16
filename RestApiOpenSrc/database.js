@@ -15,6 +15,14 @@ const db = new sqlite3.Database(dbPath, (err) => {
         completed INTEGER DEFAULT 0
       )
     `);
+
+    db.run(`
+      CREATE TABLE IF NOT EXISTS User (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL,
+        password TEXT NOT NULL
+      )
+    `);
   }
 });
 
